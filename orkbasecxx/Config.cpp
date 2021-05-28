@@ -94,6 +94,7 @@ Config::Config()
 	m_clientRetryPeriodSec = CLIENT_RETRY_PERIOD_SEC_DEFAULT;
 	m_hostnameReportFqdn = HOSTNAME_REPORT_FQDN_DEFAULT;
 	m_discardUnidirectionalCalls = false;
+	m_audioFileBitRate = 6000;
 	m_audioOutputEnable = true;
 #ifdef SUPPORT_TLS_SERVER
 	m_tlsServerPort = TLS_SERVER_PORT_DEFAULT;
@@ -252,6 +253,7 @@ void Config::Define(Serializer* s)
 	}
 	s->IntValue(CLIENT_RETRY_PERIOD_SEC, m_clientRetryPeriodSec);
 	s->BoolValue("DiscardUnidirectionalCalls", m_discardUnidirectionalCalls);
+	s->IntValue("AudioFileBitRate", m_audioFileBitRate);
 	s->BoolValue("AudioOutputEnable", m_audioOutputEnable);
 #ifdef SUPPORT_TLS_SERVER
 	s->IntValue(TLS_SERVER_PORT_PARAM, m_tlsServerPort);
