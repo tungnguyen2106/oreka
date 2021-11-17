@@ -83,8 +83,8 @@ RUN --mount=type=bind,source=/,target=/artifacts,from=builder `
 
 RUN mkdir /etc/orkaudio && chmod 777 /etc/orkaudio
 
-ADD  https://raw.githubusercontent.com/tungnguyen2106/oreka/master/orkaudio/logging-linux-template.properties /etc/orkaudio/logging.properties
-COPY config.xml /etc/orkaudio/config.xml
+ADD https://raw.githubusercontent.com/tungnguyen2106/oreka/master/orkaudio/logging-linux-template.properties /etc/orkaudio/logging.properties
+COPY config.xml /etc/orkaudio/config_default.xml
 COPY entrypoint.sh /opt/entrypoint.sh
 
 ENV SHELL /bin/bash
