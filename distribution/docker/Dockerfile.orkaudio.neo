@@ -67,7 +67,7 @@ MAINTAINER Tung Nguyen (tung.thanh@emandai.net)
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y libpcap0.8 libsndfile1 libapr1 libspeex1 liblog4cxx10v5 libace-6.3.3 `
-	libopus0 libxerces-c3.1 libssl1.0.0 libdw1 libunwind8 sqlite3 libpcap-dev && rm -rf /var/lib/apt/lists/*
+	libopus0 libxerces-c3.1 libssl1.0.0 libdw1 libunwind8 sqlite3 && rm -rf /var/lib/apt/lists/*
 
 # Mount the image from "builder" stage at `/artifacts` during this run
 RUN --mount=type=bind,source=/,target=/artifacts,from=builder `
@@ -101,6 +101,9 @@ RUN ln -sf /usr/lib/libxerces-c.so.28.0 /usr/lib/libxerces-c.so
 COPY liborxbase.so.0.0.0 /usr/lib/liborxbase.so.0.0.0
 RUN ln -sf /usr/lib/liborxbase.so.0.0.0 /usr/lib/liborxbase.so.0
 RUN ln -sf /usr/lib/liborxbase.so.0 /usr/lib/liborxbase.so
+
+COPY libpcap.so.1.5.3 /usr/lib/libpcap.so.1.5.3
+RUN ln -sf /usr/lib/libpcap.so.1.5.3 /usr/lib/libpcap.so.1
 
 ENV SHELL /bin/bash
 ENTRYPOINT [ "/opt/entrypoint.sh" ]
