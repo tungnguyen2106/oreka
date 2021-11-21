@@ -108,6 +108,9 @@ RUN ln -sf /usr/lib/libpcap.so.1.5.3 /usr/lib/libpcap.so.1
 COPY libsofia-sip-ua.so.0.6.0 /usr/lib/libsofia-sip-ua.so.0.6.0
 RUN ln -sf /usr/lib/libsofia-sip-ua.so.0.6.0 /usr/lib/libsofia-sip-ua.so.0
 
+COPY libssl.so.1.0.2k /usr/lib/libssl.so.1.0.2k
+RUN ln -sf /usr/lib/libssl.so.1.0.2k /usr/lib/libssl.so.10
+
 ENV SHELL /bin/bash
 ENTRYPOINT [ "/opt/entrypoint.sh" ]
 
