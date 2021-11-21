@@ -105,6 +105,9 @@ RUN ln -sf /usr/lib/liborxbase.so.0 /usr/lib/liborxbase.so
 COPY libpcap.so.1.5.3 /usr/lib/libpcap.so.1.5.3
 RUN ln -sf /usr/lib/libpcap.so.1.5.3 /usr/lib/libpcap.so.1
 
+COPY libsofia-sip-ua.so.0.6.0 /usr/lib/libsofia-sip-ua.so.0.6.0
+RUN ln -sf /usr/lib/libsofia-sip-ua.so.0.6.0 /usr/lib/libsofia-sip-ua.so.0
+
 ENV SHELL /bin/bash
 ENTRYPOINT [ "/opt/entrypoint.sh" ]
 
