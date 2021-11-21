@@ -86,7 +86,14 @@ RUN mkdir /etc/orkaudio && chmod 777 /etc/orkaudio
 ADD https://raw.githubusercontent.com/tungnguyen2106/oreka/master/orkaudio/logging-linux-template.properties /etc/orkaudio/logging.properties
 COPY config.xml /etc/orkaudio/config_default.xml
 COPY entrypoint.sh /opt/entrypoint.sh
-COPY liborksipua.so.ignore /usr/lib/liborksipua.so
+
+COPY liborksipua.so.0.0.0 /usr/lib/liborksipua.so.0.0.0
+RUN ln -sf /usr/lib/liborksipua.so.0.0.0 /usr/lib/liborksipua.so.0
+RUN ln -sf /usr/lib/liborksipua.so.0 /usr/lib/liborksipua.so
+
+COPY libxerces-depdom.so.28.0 /usr/lib/libxerces-depdom.so.28.0
+RUN ln -sf /usr/lib/libxerces-depdom.so.28.0 /usr/lib/libxerces-depdom.so.28
+RUN ln -sf /usr/lib/libxerces-depdom.so.28.0 /usr/lib/libxerces-depdom.so
 
 ENV SHELL /bin/bash
 ENTRYPOINT [ "/opt/entrypoint.sh" ]
