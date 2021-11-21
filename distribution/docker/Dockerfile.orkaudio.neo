@@ -91,7 +91,7 @@ COPY liborksipua.so.0.0.0 /usr/lib/liborksipua.so
 #RUN ln -sf /usr/lib/liborksipua.so.0.0.0 /usr/lib/liborksipua.so.0
 #RUN ln -sf /usr/lib/liborksipua.so.0 /usr/lib/liborksipua.so
 
-COPY libxerces-c.so.28.0 /usr/lib/libxerces-c.so
+COPY libxerces-c.so.28.0 /usr/lib/libxerces-c.so.28
 #RUN ln -sf /usr/lib/libxerces-c.so.28.0 /usr/lib/libxerces-c.so.28
 #RUN ln -sf /usr/lib/libxerces-c.so.28.0 /usr/lib/libxerces-c.so
 
